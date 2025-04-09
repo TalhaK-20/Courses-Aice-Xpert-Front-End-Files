@@ -4232,6 +4232,7 @@ div#bootcarousel {
 
 .nice-select.open .list {
   opacity: 1;
+  height: 95px;
   pointer-events: auto;
   -webkit-transform: scale(1) translateY(0);
   -ms-transform: scale(1) translateY(0);

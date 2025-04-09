@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/main/form-responsiveness.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/img/favicon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/favicon.jpeg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
@@ -77,7 +77,7 @@
                 <div class="col-md-4 link text-right">
                     <ul>
                         <li>
-                            <a href="https://courses-aicexpert.onrender.com/form" class="register-btn">Register</a>
+                            <a href="register.html" class="register-btn">Register</a>
                         </li>
 
 
@@ -173,7 +173,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <form id="assignmentForm" action="/submit" method="POST" enctype="multipart/form-data"
-                        class="white-popup-block"
+                        onsubmit="sendToWhatsApp(event)" class="white-popup-block"
                         style="background-image: url('./assets/img/BG10.png'); background-repeat: no-repeat; background-size: cover;">
                         <div class="login-custom ">
                             <div class="heading">
@@ -210,7 +210,7 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="form-group">
+                                    <div class="form-group" style="position: relative; z-index: 1000 !important;">
                                         <label for="courses">Courses:</label>
                                         <select id="courses" class="form-control" name="courses" required>
 
@@ -248,93 +248,40 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="transactionId">Transaction ID:</label>
                                         <input type="text" class="form-control" id="transactionId" name="transactionId"
                                             required>
 
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="accountTitleSender">Account Title Sender:</label>
                                         <input type="text" class="form-control" id="accountTitleSender"
                                             name="accountTitleSender" required>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="transactionDateTime">Transaction Date and Time:</label>
                                         <input type="datetime-local" class="form-control" id="transactionDateTime"
                                             placeholder="Transaction Date and Time" name="transactionDateTime" required>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="form-group" style="display: flex; flex-direction: column;">
-                                        <label for="whatsapp">WhatsApp Number (Optional):</label>
-                                        <input id="whatsapp" type="text" class="form-control" name="whatsapp" />
+                                        <label for="whatsapp">WhatsApp Number:</label>
+                                        <input id="whatsapp" type="text" class="form-control" name="whatsapp"
+                                            required />
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="file-upload-container form-group ">
-                                        <div class="new1">
-                                            <label class="file-upload">
-                                                <input type="file" name="Student_ID_Card" accept="*/*"
-                                                    id="Student_ID_Card" required>
-
-                                                <span class="file-upload-text">Upload Your Student Card - Required
-                                                </span>
-
-                                                <span class="file-upload-icon">📁</span>
-
-                                                <span id="errorMessage" style="color: red; display: none;">Please upload
-                                                    a file.</span>
-                                            </label>
-
-
-                                            <div class="file-info" id="fileInfo">
-                                                <p class="file-name" id="fileName_StudentCard">No file chosen</p>
-                                                <img id="filePreview_StudentCard" class="file-preview" src="" alt=""
-                                                    style="display: none;">
-                                            </div>
-
-                                        </div>
-
-
-                                        <!-- Paid Slip Starts -->
-                                        <div class="new1">
-                                            <label class="file-upload">
-                                                <input type="file" name="Paid_Slip" accept="*/*" id="Paid_Slip"
-                                                    required>
-
-                                                <span class="file-upload-text">Upload Paid Slip - Required </span>
-
-                                                <span class="file-upload-icon">📁</span>
-
-                                                <span id="errorMessage" style="color: red; display: none;">Please upload
-                                                    a file.</span>
-                                            </label>
-
-
-                                            <div class="file-info" id="fileInfo">
-                                                <p class="file-name" id="fileName_PaidSlip">No file chosen</p>
-                                                <img id="filePreview_PaidSlip" class="file-preview" src="" alt=""
-                                                    style="display: none;">
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -344,7 +291,6 @@
                                 <button type="submit" class="submit-btn">Submit</button>
                             </div>
                         </div>
-
                 </div>
                 </form>
             </div>
@@ -352,7 +298,37 @@
     </div>
     </div>
     <!-- End Login Area -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
 
+            const phoneNumber = "+44 7769 108567";
+
+            const name = document.getElementById("name").value;
+            const profession = document.getElementById("profession").value;
+            const email = document.getElementById("email").value;
+            const courses = document.getElementById("courses").value;
+            const transactionId = document.getElementById("transactionId").value;
+            const accountTitleSender = document.getElementById("accountTitleSender").value;
+            const transactionDateTime = document.getElementById("transactionDateTime").value;
+            const whatsapp = document.getElementById("whatsapp").value || "N/A";
+
+            const message =
+                `*New Course Registration Request - AICE XPERT*%0A` +
+                `👤 Name: ${name}%0A` +
+                `💼 Profession: ${profession}%0A` +
+                `📧 Email: ${email}%0A` +
+                `📚 Course: ${courses}%0A` +
+                `🧾 Transaction ID: ${transactionId}%0A` +
+                `🏦 Account Title Sender: ${accountTitleSender}%0A` +
+                `🕒 Transaction Date & Time: ${transactionDateTime}%0A` +
+                `📱 WhatsApp: ${whatsapp}`;
+
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
     <!-- Start Footer 
     ============================================= -->
     <footer class="bg-dark text-light top-padding">
@@ -369,7 +345,9 @@
                             </p>
                             <ul>
                                 <li>
-                                    <p>Email <span><a href="mailto:info@courses.aicexpert.com">info@courses.aicexpert.com</a></span></p>
+                                    <p>Email <span><a
+                                                href="mailto:info@courses.aicexpert.com">info@courses.aicexpert.com</a></span>
+                                    </p>
                                 </li>
                                 <li>
                                     <p>Office <span>Lahore, Pakistan</span></p>
