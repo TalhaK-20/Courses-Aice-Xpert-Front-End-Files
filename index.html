@@ -455,38 +455,38 @@
 
                 </div>
                 <div class="col-md-5 reg-form">
-                    <form action="#"
+                    <form action="#" onsubmit="sendToWhatsApp(event)"
                         style="background-image: url(assets/img/BG10.png); background-repeat: no-repeat; background-size: cover;">
                         <h5>Free</h5>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="First Name" type="text">
+                                    <input class="form-control" placeholder="First Name" type="text" id="firstName">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Last Name" type="text">
+                                    <input class="form-control" placeholder="Last Name" type="text" id="lastName">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Email*" type="email">
+                                    <input class="form-control" placeholder="Email*" type="email" id="email">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <select>
+                                    <select id="course">
                                         <option value="">Chose Course</option>
-                                        <option value="">Data analytics</option>
-                                        <option value="">Machine learning</option>
-
+                                        <option value="Data Analytics">Data Analytics</option>
+                                        <option value="Machine Learning">Machine Learning</option>
+                                        <option value="Full Stack Web Development">Full Stack Web Development</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Phone" type="text">
+                                    <input class="form-control" placeholder="Phone" type="text" id="phone">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -500,6 +500,30 @@
             </div>
         </div>
     </div>
+    <script>
+        function sendToWhatsApp(event) {
+          event.preventDefault();
+      
+          const phoneNumber = "+447769108567";
+      
+          const firstName = document.getElementById("firstName").value.trim();
+          const lastName = document.getElementById("lastName").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const course = document.getElementById("course").value;
+          const phone = document.getElementById("phone").value.trim();
+      
+          const message =
+            `*New Course Registration Request - AICE XPERT*%0A` +
+            `👤 Name: ${firstName} ${lastName}%0A` +
+            `📧 Email: ${email}%0A` +
+            `📚 Course: ${course}%0A` +
+            `📱 Phone: ${phone}`;
+      
+          const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+      
+          window.open(whatsappURL, '_blank');
+        }
+      </script>      
     <!-- End Registrationg -->
 
     <!-- Start Categories 
