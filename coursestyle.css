@@ -871,7 +871,7 @@ nav.navbar.bootsnav.sticked .attr-nav.social li {
 }
 
 .breadcrumb-area .breadcrumb li.active {
-  color: #bdff00;
+  color: #bdff00 !important;
 }
 
 
@@ -1042,7 +1042,7 @@ nav.navbar.bootsnav.sticked .attr-nav.social li {
 
 .top-bar-area.bg-light .link li a {
   border: 1px solid #e7e7e7;
-  color: #002147;
+  color: #002147 !important;
 }
 
 .top-bar-area .link li a {
@@ -1058,9 +1058,9 @@ nav.navbar.bootsnav.sticked .attr-nav.social li {
 }
 
 .top-bar-area .link li:last-child a {
-  border: 2px solid #bdff00;
-
-  color: #ffffff;
+  border: 2px solid #bdff00 !important;
+  background: black !important;
+  color: #ffffff !important;
 }
 
 /* ============================================================== 
@@ -3333,7 +3333,7 @@ div#bootcarousel {
 
 .course-details-area .courses-info {
   padding-right: 50px;
-  border-right: 1px solid #e7e7e7;
+  /* border-right: 1px solid #e7e7e7; */
 }
 
 .course-details-area .course-meta .item {
